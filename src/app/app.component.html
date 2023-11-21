@@ -21,6 +21,7 @@
   </header>
   <div>
     <section class="main">
+      @if (todos().length) {
       <input
         id="toggle-all"
         class="toggle-all"
@@ -28,11 +29,11 @@
         (click)="todoService.markAll(allChecked)"
       />
       <label for="toggle-all">Mark all as complete</label>
+      }
+
       <ul class="todo-list">
-        <li
-          *ngFor="let todo of filteredTodos()"
-          [class.completed]="todo.completed"
-        >
+        @for(todo of filteredTodos(); track todo.id){
+        <li [class.completed]="todo.completed">
           <div class="view">
             <input
               class="toggle"
@@ -54,9 +55,11 @@
             />
           </form>
         </li>
+        }
       </ul>
     </section>
-    <footer class="footer" *ngIf="todos().length">
+    @if (todos().length) {
+    <footer class="footer">
       <span class="todo-count"
         ><strong
           >{{ remainingCount }}
@@ -92,6 +95,7 @@
         Clear completed
       </button>
     </footer>
+    }
   </div>
   } @placeholder {
   <div>Angular 17 placeholder</div>
