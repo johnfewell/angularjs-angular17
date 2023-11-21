@@ -46,6 +46,12 @@ body {
   height: 100%;
 }
 
+@media (max-width: 800px) {
+  .todo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .todoapp {
   background: #fff;
   margin: 130px 0 40px 0;
@@ -75,13 +81,37 @@ body {
   position: absolute;
   top: -140px;
   width: 100%;
-  font-size: 4.5vw;
+  font-size: clamp(2rem, 4.5vw, 90px);
   font-weight: 200;
   text-align: center;
   color: #b83f45;
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
+}
+
+@media (max-width: 1200px) {
+  .todoapp h1 {
+    top: -120px;
+  }
+}
+
+@media (max-width: 992px) {
+  .todoapp h1 {
+    top: -100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .todoapp h1 {
+    top: -80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .todoapp h1 {
+    top: -60px;
+  }
 }
 
 .new-todo,
@@ -394,4 +424,14 @@ html .clear-completed:active {
 .toggle-all:focus + label {
   box-shadow: 0 0 2px 2px #cf7d7d;
   outline: 0;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

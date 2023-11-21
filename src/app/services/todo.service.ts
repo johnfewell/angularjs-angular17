@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, computed, signal } from '@angular/core';
 import { Observable, filter, map, take } from 'rxjs';
 import {
   Todo,
@@ -14,8 +14,25 @@ import { toSignal } from '@angular/core/rxjs-interop';
   providedIn: 'root',
 })
 export class TodoService {
-  private todos$: Observable<Todo[]> = todos$;
-  public todos = toSignal(this.todos$, { initialValue: [] as Todo[] });
+  public todos$: Observable<Todo[]> = todos$;
+  private todos = toSignal(this.todos$, { initialValue: [] as Todo[] });
+  public completed = computed(() => {
+    return this.todos().filter((todo) => todo.completed) as Todo[];
+  });
+  public active = computed(() => {
+    return this.todos().filter((todo) => !todo.completed) as Todo[];
+  });
+
+  filterBy = signal('all');
+
+  filteredTodos = computed(() => {
+    if (this.filterBy() === 'completed') {
+      return this.todos().filter((todo) => todo.completed);
+    } else if (this.filterBy() === 'active') {
+      return this.todos().filter((todo) => !todo.completed);
+    }
+    return this.todos();
+  });
 
   addTodo(title: string) {
     const todo: Todo = {
@@ -24,6 +41,10 @@ export class TodoService {
       id: Date.now(),
     };
     addTodo(todo);
+  }
+
+  setFilter(status: 'all' | 'completed' | 'active') {
+    this.filterBy.set(status);
   }
 
   toggleTodo(id: number) {
@@ -56,15 +77,14 @@ export class TodoService {
         todo.completed = completed;
         return todo;
       });
-      setTodos(updateTodos);
+      // this.setFilter('active');
+      setTodos([...updateTodos]);
     });
   }
 
   deleteTodo(id: number) {
     deleteTodo(id);
   }
-
-  editTodo(todo: Todo) {}
 
   saveEdits(todo: Todo) {
     updateTodo(todo.id, todo);
