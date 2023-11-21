@@ -37,6 +37,15 @@
           }
         }
       }
+    },
+    {
+      "label": "Build and watch Angular 17",
+      "type": "shell",
+      "command": "ng build --output-path=angularjs/bundles --watch --output-hashing=none --source-map=true",
+      "problemMatcher": ["$tsc-watch"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
     }
   ]
 }
