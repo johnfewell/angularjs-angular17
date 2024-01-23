@@ -92,11 +92,11 @@ export class TodoItemComponent implements AfterViewChecked {
     this.isEditing = true;
   }
 
-  handleBlur(e: Event) {
+  handleBlur(_e: Event) {
     this.isEditing = false;
   }
 
-  handleFocus(e: Event) {
+  handleFocus(_e: Event) {
     this.titleFormControl.setValue(this.todo.title);
   }
 

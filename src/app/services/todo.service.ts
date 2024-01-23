@@ -15,7 +15,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class TodoService {
   public todos$: Observable<Todo[]> = todos$;
-  private todos = toSignal(this.todos$, { initialValue: [] as Todo[] });
+  public todos = toSignal(this.todos$, { initialValue: [] as Todo[] });
   public completed = computed(() => {
     return this.todos().filter((todo) => todo.completed) as Todo[];
   });
@@ -77,7 +77,6 @@ export class TodoService {
         todo.completed = completed;
         return todo;
       });
-      // this.setFilter('active');
       setTodos([...updateTodos]);
     });
   }

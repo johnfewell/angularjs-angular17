@@ -11,7 +11,7 @@ angular
     "TodoCtrl",
     function TodoCtrl($scope, $routeParams, $filter, store) {
       "use strict";
-
+      $scope.filterCriteria = { status: "" };
       var todos = ($scope.todos = store.todos);
       $scope.stateObject = store.todos;
 
@@ -27,13 +27,11 @@ angular
 
       $scope.handleNotifyStateChange = function (newState) {
         console.log("newstate in angularjs");
-        // MapService.updateState(newState);
         $scope.saving = true;
         store
           .update(newState)
           .then(function success(newState) {
             console.log("NEW STATE", newState);
-            // Do something with the updated todos if needed
           })
           .finally(function () {
             $scope.saving = false;
@@ -54,13 +52,11 @@ angular
         true
       );
 
-      // Monitor the current route for changes and adjust the filter accordingly.
-      $scope.$on("$routeChangeSuccess", function () {
-        var status = ($scope.status = $routeParams.status || "");
+      $scope.$watch("filterCriteria.status", function (newStatus) {
         $scope.statusFilter =
-          status === "active"
+          newStatus === "active"
             ? { completed: false }
-            : status === "completed"
+            : newStatus === "completed"
             ? { completed: true }
             : {};
       });

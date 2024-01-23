@@ -7,13 +7,16 @@ import {
   updateEntities,
   deleteEntities,
 } from '@ngneat/elf-entities';
+import { z } from 'zod';
 
-export interface Todo {
-  id: number;
-  title: string;
-  completed: boolean;
-  isEditing?: boolean;
-}
+export const TodoSchema = z.object({
+  id: z.number(),
+  title: z.string(),
+  completed: z.boolean(),
+  isEditing: z.boolean().optional(),
+});
+
+export type Todo = z.infer<typeof TodoSchema>;
 
 export const store = createStore({ name: 'todos' }, withEntities<Todo>());
 
