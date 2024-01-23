@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { Todo, TodoSchema, setTodos } from './repostories/todos.repository';
 import { TodoService } from './services/todo.service';
-import deepEqual from 'deep-equal';
+import deepEqual from 'fast-deep-equal/es6';
 import { TodoFooterComponent } from './components/todoFooter/todoFooter.component';
 import { TodoHeaderComponent } from './components/todoHeader/todoHeader.component';
 import { TodoItemComponent } from './components/todoItem/todoItem.component';

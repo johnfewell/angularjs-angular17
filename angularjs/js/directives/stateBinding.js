@@ -1,4 +1,4 @@
-angular.module("todomvc").directive("standaloneApp", [
+angular.module("todomvc").directive("angular17App", [
   function () {
     return {
       restrict: "E",
