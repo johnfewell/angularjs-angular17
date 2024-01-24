@@ -60,7 +60,6 @@ export class TodoItemComponent implements AfterViewChecked {
   set todo(value: Todo) {
     this._todo = value;
     console.log('todo input', value);
-    // Perform your action or computation here
   }
 
   get todo(): Todo {

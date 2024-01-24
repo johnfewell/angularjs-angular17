@@ -8,8 +8,8 @@ angular.module("todomvc").directive("angular17App", [
       },
       link: function (scope, element) {
         scope.$watch("state", function (newVal, oldVal) {
-          console.log("Old value:", oldVal);
-          console.log("New value:", newVal);
+          console.log("AngularJS Directive - Old value:", oldVal);
+          console.log("AngularJS Directive - New value:", newVal);
           element[0].state = newVal;
         });
 

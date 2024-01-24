@@ -8,7 +8,7 @@ import { TodoService } from '../../services/todo.service';
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   template: `<header class="header">
-    <h1>todos - Angular 17</h1>
+    <h1>todos - Angular 17.1</h1>
     <input
       class="new-todo"
       placeholder="What needs to be done?"
