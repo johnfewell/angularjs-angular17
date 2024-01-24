@@ -18,7 +18,7 @@
       <div class="todo-grid">
         <section class="todoapp">
           <header class="header">
-            <h1>todos - AngularJS 1.4</h1>
+            <h1>todos - AngularJS 1.8</h1>
             <form class="todo-form" ng-submit="addTodo()">
               <input
                 class="new-todo"
@@ -77,22 +77,25 @@
             <ul class="filters">
               <li>
                 <a
+                  href=""
                   ng-class="{selected: filterCriteria.status == ''}"
-                  ng-click="filterCriteria.status = ''"
+                  ng-click="filterCriteria.status = ''; $event.preventDefault()"
                   >All</a
                 >
               </li>
               <li>
                 <a
+                  href=""
                   ng-class="{selected: filterCriteria.status == 'active'}"
-                  ng-click="filterCriteria.status = 'active'"
+                  ng-click="filterCriteria.status = 'active'; $event.preventDefault()"
                   >Active</a
                 >
               </li>
               <li>
                 <a
+                  href=""
                   ng-class="{selected: filterCriteria.status == 'completed'}"
-                  ng-click="filterCriteria.status = 'completed'"
+                  ng-click="filterCriteria.status = 'completed'; $event.preventDefault()"
                   >Completed</a
                 >
               </li>

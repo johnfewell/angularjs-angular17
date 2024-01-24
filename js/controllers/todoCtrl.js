@@ -22,26 +22,19 @@ angular
       $scope.$on("storeUpdated", function (_event, newState) {
         console.log("newState from angularJS store", newState);
         $scope.stateObject = angular.copy(newState);
-        // todos = angular.copy($scope.stateObject);
       });
 
       $scope.handleNotifyStateChange = function (newState) {
         console.log("newstate in angularjs");
         $scope.saving = true;
-        store
-          .update(newState)
-          .then(function success(newState) {
-            console.log("NEW STATE", newState);
-          })
-          .finally(function () {
-            $scope.saving = false;
-          });
+        store.update(newState).finally(function () {
+          $scope.saving = false;
+        });
       };
 
       $scope.$watch(
         "todos",
         function () {
-          console.log("todos", todos);
           $scope.stateObject = angular.copy(todos);
           $scope.remainingCount = $filter("filter")(todos, {
             completed: false,
