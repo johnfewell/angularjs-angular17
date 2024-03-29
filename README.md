@@ -1,27 +1,66 @@
-# AngularjsAngular17
+# AngularJS and Angular 17 Coexistence Demo# AngularJS and Angular 17 Coexistence Demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
+This repository demonstrates the coexistence of AngularJS and Angular 17 within a single application. It showcases how a modern Angular application can be embedded within an existing AngularJS application, allowing for seamless state synchronization between the two frameworks.
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The demo is based on the ToDo MVC project, which is designed to showcase various front-end frameworks. In this specific implementation, an Angular 17 custom element is embedded within an AngularJS application, both running the same ToDo MVC application.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Seamless integration of Angular 17 within an AngularJS application
+- State synchronization between AngularJS and Angular 17
+- Demonstration of Angular Elements (custom elements) usage
+- Modified build process to facilitate integration
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To run the demo locally, follow these steps:
 
-## Running unit tests
+1. Clone the repository:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+git clone https://github.com/johnfewell/angularjs-angular17.git
+```
 
-## Running end-to-end tests
+2. Navigate to the project directory:
+```
+cd angularjs-angular17
+```
+3. Install the dependencies:
+```
+npm install
+```
+4. Start the development server:
+```
+npm run start
+```
+5. Open your browser and visit `http://localhost:4200` to see the demo in action.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Project Structure
 
-## Further help
+- `src/`: Contains the source code for the Angular 17 application
+- `angularjs/`: Contains the AngularJS application code
+  - `angularjs/bundles/`: Output directory for the compiled Angular 17 bundles
+- `angular.json`: Angular configuration file
+- `package.json`: Node.js package configuration file
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## How It Works
+
+The Angular 17 application is compiled as a custom element (Angular Element) and embedded within the AngularJS application. The build process is modified to generate consistently named bundles without hashing, facilitating the inclusion of the Angular 17 bundles in the AngularJS application.
+
+State synchronization between AngularJS and Angular 17 is achieved through a directive that binds the input and output data from the Angular custom element to AngularJS. This ensures that any changes made in one framework are reflected in the other.
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+- [AngularJS](https://angularjs.org/)
+- [Angular](https://angular.io/)
+- [ToDo MVC](https://todomvc.com/)
