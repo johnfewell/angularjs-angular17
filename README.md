@@ -1,6 +1,8 @@
 # AngularJS and Angular 17 Coexistence Demo# AngularJS and Angular 17 Coexistence Demo
 
-This repository demonstrates the coexistence of AngularJS and Angular 17 within a single application. It showcases how a modern Angular application can be embedded within an existing AngularJS application, allowing for seamless state synchronization between the two frameworks. [The full description is on my blog.](https://johnfewell.com/blog/angularjs-angular17/)
+This repository demonstrates the coexistence of AngularJS and Angular 17 within a single application. It showcases how a modern Angular application can be embedded within an existing AngularJS application, allowing for seamless state synchronization between the two frameworks. 
+[The full description is on my blog.](https://johnfewell.com/blog/angularjs-angular17/)
+[The demo app is here](https://johnfewell.github.io/angularjs-angular17/#!/)
 
 ## Overview
 
