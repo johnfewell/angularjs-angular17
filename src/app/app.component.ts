@@ -11,7 +11,6 @@ import { TodoService } from './services/todo.service';
 import deepEqual from 'fast-deep-equal/es6';
 import { TodoFooterComponent } from './components/todoFooter/todoFooter.component';
 import { TodoHeaderComponent } from './components/todoHeader/todoHeader.component';
-import { TodoItemComponent } from './components/todoItem/todoItem.component';
 import { TodoListComponent } from './components/todoList/todoList.component';
 import { z } from 'zod';
 
@@ -19,12 +18,7 @@ import { z } from 'zod';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [
-    TodoFooterComponent,
-    TodoHeaderComponent,
-    TodoItemComponent,
-    TodoListComponent,
-  ],
+  imports: [TodoFooterComponent, TodoHeaderComponent, TodoListComponent],
   standalone: true,
 })
 export class AppComponent implements OnChanges {
